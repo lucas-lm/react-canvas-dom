@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 
 const Canvas = props => {
-  return <canvas {...props} />;
+  const canvasRef = useRef(null);
+
+  return <canvas ref={canvasRef} {...props} />;
 };
 
 export default Canvas;
