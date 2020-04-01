@@ -1,9 +1,9 @@
-import React from 'react'
-import { render } from 'react-dom'
-import Canvas from '../../src'
+import React from "react";
+import { render } from "react-dom";
+import Canvas from "../../src";
 
 const App = () => {
-  return <Canvas />
-}
+  return <Canvas />;
+};
 
-render(<App />, document.getElementById("root"))
+render(<App />, document.getElementById("root"));

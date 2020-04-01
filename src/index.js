@@ -1,5 +1,7 @@
-import React from 'react'
+import React from "react";
 
-const Canvas = () => <canvas>Oops, your browser does not support canvas :(</canvas>
+const Canvas = props => {
+  return <canvas {...props} />;
+};
 
-export default Canvas 
+export default Canvas;
