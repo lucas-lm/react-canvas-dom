@@ -1,5 +1,17 @@
 import { useRef, useEffect } from "react";
 
+const updateCanvasSize = canvas => {
+  const { width, height } = canvas.getBoundingClientRect();
+
+  if (canvas.width !== width || canvas.height !== height) {
+    canvas.width = width;
+    canvas.height = height;
+    return true;
+  }
+
+  return false;
+};
+
 const useCanvas = draw => {
   const canvasRef = useRef(null);
 
@@ -11,6 +23,7 @@ const useCanvas = draw => {
 
     const render = () => {
       frameCount++;
+      updateCanvasSize(canvas);
       draw(context, frameCount);
       animationFrameId = window.requestAnimationFrame(render);
     };
