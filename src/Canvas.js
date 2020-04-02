@@ -9,6 +9,10 @@ const Canvas = props => {
   return <canvas ref={canvasRef} {...rest} />;
 };
 
+Canvas.defaultProps = {
+  draw: () => {}
+};
+
 Canvas.propTypes = {
   draw: PropTypes.func.isRequired
 };
