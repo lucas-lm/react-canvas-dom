@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import useCanvas from "./useCanvas";
 
 const Canvas = props => {
-  const { draw, ...rest } = props;
-  const canvasRef = useCanvas(draw);
+  const { draw, options, ...rest } = props;
+  const canvasRef = useCanvas(draw, options);
 
   return <canvas ref={canvasRef} {...rest} />;
 };
@@ -14,7 +14,16 @@ Canvas.defaultProps = {
 };
 
 Canvas.propTypes = {
-  draw: PropTypes.func.isRequired
+  draw: PropTypes.func.isRequired,
+  options: PropTypes.shape({
+    context: PropTypes.oneOf([
+      "2d",
+      "webgl",
+      "experimental-webgl",
+      "webgl2",
+      "bitmaprenderer"
+    ])
+  })
 };
 
 export default Canvas;
